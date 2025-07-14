@@ -1,0 +1,507 @@
+/* Estilos Generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5; /* Color de fondo suave */
+    margin: 0;
+    padding: 0;
+    color: #a1a1a1; /* Color de texto estándar */
+}
+
+/* Encabezado */
+header {
+    background-color: #343a40; /* Color de fondo oscuro para el encabezado */
+}
+
+.header-title {
+    color: #ffffff; /* Color del título en el encabezado */
+}
+
+.nav a {
+    color: #ffffff; /* Color de los enlaces en el encabezado */
+}
+
+.nav a:hover {
+    color: #ff6f61; /* Color al pasar el mouse */
+}
+
+/* Contenedor Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Animaciones */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tarjetas */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones */
+.btn-led {
+    background-color: #ff6f61; /* Color de fondo del botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-led:hover {
+    box-shadow: 0 0 20px rgba(255, 111, 97, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Carrito */
+#cart {
+    display: none;
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #ccc; /* Borde gris claro */
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+#cart.active {
+    display: block;
+}
+
+#cart h3 {
+    margin-bottom: 10px;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-items li {
+    margin: 5px 0;
+}
+
+#cart-items li span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#total-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Popup */
+#popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50; /* Color de fondo verde */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none; /* Oculto por defecto */
+    z-index: 1001; /* Asegurarse que esté por encima de otros elementos */
+    transition: opacity 0.5s ease; /* Transición suave */
+}
+
+/* Búsqueda */
+.search-container {
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    margin: 20px 0; /* Espaciado vertical */
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px; /* Ancho máximo para la barra de búsqueda */
+    padding: 12px 20px;
+    border: 2px solid #007bff; /* Color del borde */
+    border-radius: 25px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el borde y sombra */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+#search-input:focus {
+    border-color: #0056b3 ; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+/* Sugerencias de búsqueda */
+#suggestions {
+    max-height: 0; /* Comienza con altura 0 para ocultar */
+    overflow: hidden; 
+    border: 1px solid #ccc; 
+    border-radius: 0 0 10px 10px; 
+    background-color: white; 
+    z-index: 1000; 
+    margin-top: 5px; 
+    opacity: 0; /* Comienza oculto */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Transiciones para altura y opacidad */
+}
+
+#suggestions.active {
+    max-height: 200px; /* Altura máxima cuando está activo */
+    opacity: 1; /* Hacer visible */
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0;
+}
+
+/* Pie de página */
+.footer {
+    background-color: #312929; /* Color de fondo oscuro para el pie de página */
+    color: #ffffff; /* Color del texto en el pie de página */
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer a {
+    color: #ffffff; /* Color de los enlaces en el pie de página */
+}
+
+.footer a:hover {
+    color: #ff6f61; /* Color al pasar el mouse */
+}
+
+/* Dropdown de búsqueda */
+.search-dropdown {
+    position: absolute;
+    background-color: #ffffff; /* Fondo blanco */
+    min-width: 200px; /* Ancho mínimo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    border-radius: 5px; /* Bordes redondeados */
+    display: none; /* Oculto por defecto */
+}
+
+.search-dropdown a {
+    color: #333; /* Color del texto */
+    padding: 10px 15px; /* Relleno para los elementos */
+    text-decoration: none; /* Sin subrayado */
+    display: block; /* Elementos en bloque */
+}
+
+.search-dropdown a:hover {
+    background-color: #f0f0f0; /* Cambia el fondo al pasar el ratón */
+    color: #007bff; /* Cambia el color del texto al pasar el ratón */
+}
+
+.search-bar:focus + .search-dropdown {
+    display: block; /* Muestra la pestaña al enfocar la barra de búsqueda */
+}
+
+/* Estilos para subcategorías */
+.subpestaña.oculta {
+    display: none;
+}
+
+.subcategories {
+    padding-left: 20px; /* Sangría para las subcategorías */
+    margin-bottom: 15px; /* Espaciado inferior */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Transiciones para altura y opacidad */
+    overflow: hidden; /* Ocultar contenido desbordante */
+}
+
+.subcategories div {
+    padding: 15px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave para el fondo */
+    border-radius: 8px; /* Bordes redondeados más marcados */
+    background-color: #343a40; /* Fondo oscuro para las subcategorías */
+    color: #ffffff; /* Color del texto blanco */
+    margin-bottom: 15px; /* Espaciado inferior entre subcategorías */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada para dar profundidad */
+}
+
+.subcategories div:hover {
+    background-color: #495057; /* Color de fondo más claro al pasar el mouse */
+    transform: translateY(-3px); /* Efecto de elevación más pronunciado */
+}
+
+/* Animación para mostrar las subcategorías */
+.subcategories.active {
+    max-height: 200px; /* Altura máxima cuando está activo */
+    opacity: 1; /* Hacer visible */
+}
+
+/* Estilo para ocultar elementos */
+.hidden {
+    display: none; /* Ocultar elementos */
+}
+
+/* Estilo para el carrito */
+#cart {
+    max-height: 400px; /* Altura máxima del carrito */
+    overflow-y: auto; /* Habilitar desplazamiento vertical */
+}
+
+.categories-tab {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 15px; /* Bordes más redondeados */
+    padding: 25px; /* Espaciado interno aumentado */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    margin-top: 30px; /* Espaciado superior aumentado */
+}
+.categories-tab h3 {
+    margin-bottom: 20px; /* Espaciado inferior aumentado */
+    font-size: 2em; /* Tamaño de fuente más grande */
+    color: #4a90e2; /* Color azul atractivo */
+    font-weight: bold; /* Negrita */
+    position: relative; /* Para el efecto de subrayado */
+}
+
+.categories-tab h3::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #4a90e2; /* Color del subrayado */
+    position: absolute;
+    bottom: -5px; /* Posición del subrayado */
+    left: 0;
+    transition: width 0.3s; /* Transición suave */
+}
+
+.categories-tab h3:hover::after {
+    width: 50%; /* Efecto de expansión al pasar el mouse */
+}
+
+
+.category-button {
+    background: linear-gradient(90deg, #6f42c1, #ff6f61); /* Degradado atractivo */
+    color: white; /* Color del texto */
+    padding: 15px; /* Espaciado interno aumentado */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 100%; /* Botones ocupan todo el ancho */
+    text-align: center; /* Centrar texto */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    margin-bottom: 20px; /* Espaciado entre botones */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+.category-button:hover {
+    transform: translateY(-3px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.subcategories {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 20px; /* Espaciado inferior */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Transiciones para altura y opacidad */
+    overflow: hidden; /* Ocultar contenido desbordante */
+}
+
+.subcategories div {
+    padding: 10px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave para el fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #e9ecef; /* Fondo gris claro para subcategorías */
+    color: #c5c5c5; /* Color del texto */
+    margin-bottom: 10px; /* Espaciado inferior entre subcategorías */
+}
+
+.subcategories div:hover {
+    background-color: #dee2e6; /* Color de fondo más claro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación más ligero */
+}
+
+
+
+
+
+
+
+
+.categories-tab {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #4CAF50; /* Color de fondo */
+    color: rgb(139, 139, 139); /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 15px; /* Espaciado interno */
+    text-align: left; /* Alinear texto a la izquierda */
+    text-decoration: none; /* Sin subrayado */
+    display: block; /* Mostrar como bloque */
+    font-size: 18px; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    width: 100%; /* Ancho completo */
+}
+
+button:hover {
+    background-color: #ff8878; /* Color de fondo al pasar el mouse */
+    transform: scale(1.02); /* Efecto de aumento */
+}
+
+.subcategories {
+    padding-left: 20px; /* Sangría para subcategorías */
+}
+
+.subcategories div {
+    background-color: #303030; /* Color de fondo de subcategorías */
+    color: #9c9c9c; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    margin: 5px 0; /* Margen entre subcategorías */
+    transition: background-color 0.3s; /* Transición de fondo */
+}
+
+.subcategories div:hover {
+    background-color: #b8b8b8; /* Color de fondo al pasar el mouse */
+    cursor: pointer; /* Cambiar cursor a puntero */
+}
+
+
+body {
+    margin: 0;
+    height: 100vh; /* Altura completa de la ventana */
+   
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 0.4em;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+  }
+  
+  .form:hover {
+    transform: scale(1.05);
+    border: 1px solid black;
+  }
+  
+  #heading {
+    text-align: center;
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+  
+  .input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: white;
+  }
+  
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+  }
+  
+  .form .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+  }
+  
+  .button1 {
+    padding: 0.5em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button1:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .button2 {
+    padding: 0.5em;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button2:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .button3 {
+    margin-bottom: 3em;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button3:hover {
+    background-color: red;
+    color: white;
+  }

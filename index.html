@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Vinos Lutri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="another-styles.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body class="bg-gray-200 text-gray-900">
+    <header class="bg-black text-white">
+        <div class="container mx-auto flex justify-between items-center py-4">
+            <div class="text-2xl font-bold header-title">Vinos Lutri</div>
+            <nav class="space-x-4">
+                <nav class="space-x-4">
+                    <a class="hover:text-red-700 transition-colors duration-300 tablink" href="#" onclick="openTab(event, 'Inicio')">Inicio</a>
+                    <a class="hover:text-red-700 transition-colors duration-300 tablink" href="#" onclick="openTab(event, 'Ofertas')">Ofertas</a>
+                    <a class="hover:text-red-700 transition-colors duration-300 tablink" href="#" onclick="openTab(event, 'Categorias')">Categorías</a>
+                </nav>
+            </nav>
+            <div class="space-x-4">
+                <a class="hover:text-red-700 transition-colors duration-300" href="#" onclick="openAccountTab()">
+                    <i class="fas fa-user"></i> Mi Cuenta
+                </a>
+                <a class="hover:text-red-700 transition-colors duration-300" href="#" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)
+                </a>
+            </div>
+            
+        </div>
+    </header>
+
+
+    
+
+
+    <main class="container mx-auto py-8">
+        <div id="popup" style="display: none;">Artículo agregado al carrito!</div>
+
+        <main class="container mx-auto py-8">
+          
+        <div id="MiCuenta2" class="tab-content fade-in" style="display:none;">
+            <h3 class="text-xl font-bold">Mi Cuenta (Otra Sección)</h3>
+            <form id="accountForm2" class="bg-white p-4 rounded shadow-md">
+                <div class="mb-4">
+                    <div class="mb-4">
+                        <label for="username" class="block text-gray-700">Nombre de Usuario:</label>
+                        <input type="text" id="username" class="border rounded w-full py-2 px-3" placeholder="Introduce tu nombre de usuario" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">Correo Electrónico:</label>
+                        <input type="email" id="email" class="border rounded w-full py-2 px-3" placeholder="Introduce tu correo electrónico" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="block text-gray-700">Contraseña:</label>
+                        <input type="password" id="password" class="border rounded w-full py-2 px-3" placeholder="Introduce tu contraseña" required>
+                    </div>
+                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Actualizar Información</button>
+                    <div id="message" class="mt-4"></div>
+                </form>
+            </div>
+        </main>
+
+        <div id="MiCuenta" class="tab-content fade-in" style="display:none;">
+    
+            <h3 class="text-xl font-bold">Mi Cuenta</h3>
+            <form id="accountForm" class="form">
+                <p id="heading">Iniciar Sesión</p>
+                <div class="field">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+                    </svg>
+                    <input autocomplete="off" placeholder="Nombre de Usuario" class="input-field" type="text">
+                </div>
+                <div class="field">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+                    </svg>
+                    <input placeholder="Contraseña" class="input-field" type="password">
+                </div>
+                <div class="btn">
+                    <button class="button1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Iniciar Sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button class="button2">Registrarse</button>
+                </div>
+                <button class="button3">Olvidé mi Contraseña</button>
+            </form>
+        </div>
+
+
+        <div id="updatePopup" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <p>¡Tus datos han sido actualizados con éxito!</p>
+            </div>
+        </div>
+
+
+
+        <div id="cart" class="fixed right-0 top-16 bg-white shadow-lg p-4 border border-gray-300 rounded-lg hidden">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold mb-4">Carrito</h2>
+                <button onclick="toggleCart()" class="text-red-500 text-xl">&times;</button> 
+            </div>
+            <div id="cart-items"></div>
+            <p>Total: $<span id="cart-total">0.00</span></p>
+            <p>Cantidad de productos: <span id="total-quantity">0</span></p>
+        </div>
+
+        <div class="bg-gradient-to-r from-red-700 to-gray-900 text-white text-center py-16 mb-8 fade-in">
+            <h1 class="text-5xl font-bold shadow-lg mb-4 transition-transform duration-300 transform hover:scale-105">Bienvenido a Distribuidor Lutri</h1>
+            <p class="mt-4 text-lg shadow-lg transition-transform duration-300 transform hover:scale-105">Las mejores ofertas para compras al por mayor de vinos, cervezas y gaseosas</p>
+        </div>
+
+        <input type="text" id="search-input" class="search-bar" placeholder="Buscar...">
+        <div id="suggestions" class="search-dropdown hidden"></div> 
+
+        <div id="Inicio" class="tab-content fade-in" style="display:none;">
+            <h3 class="text-xl font-bold">Bienvenido a Vinos Lutri</h3>
+            <p>Aquí encontrarás la mejor seleccion de articulos para comprar al por mayor de vinos, cervezas y gaseosas.</p>
+            <div class="grid grid-cols-4 gap-4">
+                <!-- Productos destacados -->
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de vino tinto" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYV1J230RwgGU40ovkw5F2MN 7FVXYpR8CpA&s.jpeg">
+                    <h4 class="font-bold">Vino Tinto</h4>
+                    <p>$10.00</p>
+                    <button onclick="addToCart('Vino Tinto', 10, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYV1J230RwgGU40ovkw5F2MN7FVXYpR8CpA&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de vino blanco" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0BoRZiUDwdJXm5INJRj0VXipdUeSQHY1yGQ&s.jpeg">
+                    <h4 class="font-bold">Vino Blanco</h4>
+                    <p>$11.00</p>
+                    <button onclick="addToCart('Vino Blanco', 11, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0BoRZiUDwdJXm5INJRj0VXipdUeSQHY1yGQ&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de vino rosado" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDg-cb4NKM8kG_9fgqyDG65Q5SbMLf6Z_C1A&s.jpeg">
+                    <h4 class="font-bold">Vino Rosado</h4>
+                    <p>$13.00</p>
+                    <button onclick="addToCart('Vino Rosado', 13, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDg-cb4NKM8kG_9fgqyDG65Q5SbMLf6Z_C1A&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de champagne" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_XVkjAnwTS-RS9o79nulOYJLW7IHJAB43eg&s.jpeg">
+                    <h4 class="font-bold">Champagne</h4>
+                    <p>$25.00</p>
+                    <button onclick="addToCart('Champagne', 25, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_XVkjAnwTS-RS9o79nulOYJLW7IHJAB43eg&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="Categorias" class="tab-content fade-in" style="display:none;">
+            <h3 class="text-xl font-bold">Categorías</h3>
+            <div class="categories-tab">
+                <button onclick="toggleSubcategories('vinos-dropdown')" class="w-full">Vinos</button>
+                <div id="vinos-dropdown" class="subcategories hidden">
+                    <div onclick="openDrinkTab('vinoTinto')">Vino Tinto</div>
+                    <div onclick="openDrinkTab('vinoBlanco')">Vino Blanco</div>
+                    <div onclick="openDrinkTab('vinoRosa')">Vino Rosa</div>
+                    <div onclick="openDrinkTab('vinoRosado')">Vino Rosado</div>
+                    <div onclick="openDrinkTab('champagne')">Champagne</div>
+                </div>
+                <button onclick="toggleSubcategories('cervezas-dropdown')" class="w-full">Cervezas</button>
+                <div id="cervezas-dropdown" class="subcategories hidden">
+                    <div onclick="openDrinkTab('cervezaRubia')">Cerveza Rubia</div>
+                    <div onclick="openDrinkTab('cervezaNegra')">Cerveza Negra</div>
+                </div>
+                <button onclick="toggleSubcategories('gaseosas-dropdown')" class="w-full">Gaseosas</button>
+                <div id="gaseosas-dropdown" class="subcategories hidden">
+                    <div onclick="openDrinkTab('gaseosaCola')">Gaseosa Cola</div>
+                    <div onclick="openDrinkTab('gaseosaNaranja')">Gaseosa Naranja</div>
+                    <div onclick="openDrinkTab('gaseosaLima')">Gaseosa Lima</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección para mostrar los productos de cada bebida -->
+        <div id="vinoTinto" class="drink-tab hidden">
+            <h3>Vinos Tintos</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYV1J230RwgGU40ovkw5F2MN7FVXYpR8CpA&s.jpeg" alt="Vino Tinto">
+                <p>Vino Tinto - $10.00</p>
+                <button onclick="addToCart('Vino Tinto', 10, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYV1J230RwgGU40ovkw5F2MN7FVXYpR8CpA&s.jpeg')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="vinoBlanco" class="drink-tab hidden">
+            <h3>Vinos Blancos</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0BoRZiUDwdJXm5INJRj0VXipdUeSQHY1yGQ&s.jpeg" alt="Vino Blanco">
+                <p>Vino Blanco - $11.00</p>
+                <button onclick="addToCart('Vino Blanco', 11, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0BoRZiUDwdJXm5INJRj0VXipdUeSQHY1yGQ&s.jpeg')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="vinoRosado" class="drink-tab hidden">
+            <h3>Vinos Rosados</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDg-cb4NKM8kG_9fgqyDG65Q5SbMLf6Z_C1A&s.jpeg" alt="Vino Rosado">
+                <p>Vino Rosado - $13.00</p>
+                <button onclick="addToCart('Vino Rosado', 13, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDg-cb4NKM8kG_9fgqyDG65Q5SbMLf6Z_C1A&s.jpeg ')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="champagne" class="drink-tab hidden">
+            <h3>Champagne</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_XVkjAnwTS-RS9o79nulOYJLW7IHJAB43eg&s.jpeg" alt="Champagne">
+                <p>Champagne - $25.00</p>
+                <button onclick="addToCart('Champagne', 25, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_XVkjAnwTS-RS9o79nulOYJLW7IHJAB43eg&s.jpeg')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="cervezaRubia" class="drink-tab hidden">
+            <h3>Cerveza Rubia</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBb2BH70ljIzHSKgtNdlh3QdlH2oU9UPP_rA&s" alt="Cerveza Rubia">
+                <p>Cerveza Rubia - $5.00</p>
+                <button onclick="addToCart('Cerveza Rubia', 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBb2BH70ljIzHSKgtNdlh3QdlH2oU9UPP_rA&s')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="cervezaNegra" class="drink-tab hidden">
+            <h3>Cerveza Negra</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1Jz2as9lFUY4nLd4X_14hRqEoUlu7PdnCQ&s" alt="Cerveza Negra">
+                <p>Cerveza Negra - $6.00</p>
+                <button onclick="addToCart('Cerveza Negra', 6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1Jz2as9lFUY4nLd4X_14hRqEoUlu7PdnCQ&s')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="gaseosaCola" class="drink-tab hidden">
+            <h3>Gaseosa Cola</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgXvXxdw2rP04-zDWfmslbltDtx_nlHad5GA&s" alt="Gaseosa Cola">
+                <p>Gaseosa Cola - $2.00</p>
+                <button onclick="addToCart('Gaseosa Cola', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgXvXxdw2rP04-zDWfmslbltDtx_nlHad5GA&s')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="gaseosaNaranja" class="drink-tab hidden">
+            <h3>Gaseosa Naranja</h3>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq6dXuEEYP4STrRlkQ41dPiCAXBJkf8OeATw&s" alt="Gaseosa Naranja">
+                <p>Gaseosa Naranja - $2.00</p>
+                <button onclick="addToCart('Gaseosa Naranja', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq6dXuEEYP4STrRlkQ41dPiCAXBJkf8OeATw&s.jpeg')">Agregar al Carrito</button>
+            </div>
+        </div>
+        
+        <div id="gaseosaLima" class="drink-tab hidden">
+            <h3>Gaseosa Lima</h3>
+            <div>
+                <img src="data:image/jpeg;base64,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" alt="Gaseosa Lima">
+                <p>Gaseosa Lima - $2.50</p>
+                <button onclick="addToCart('Gaseosa Lima', 2.5, 'data:image/jpeg;base64,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')">Agregar al Carrito</button>
+            </div>
+        </div>
+    
+
+
+
+
+        
+
+        <div id="Ofertas" class="tab-content fade-in" style="display:none;">
+            <h3 class="text-xl font-bold">Ofertas Especiales</h3>
+            <p>Descubre nuestras ofertas exclusivas en vinos, cervezas y gaseosas.</p>
+            <div class="grid grid-cols-4 gap-4">
+                <!-- Productos en oferta -->
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de cerveza rubia" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBb2BH70ljIzHSKgtNdlh3QdlH2oU9UPP_rA&s.jpeg">
+                    <h4 class="font-bold">Cerveza Rubia</h4>
+                    <p>$5.00</p>
+                    <button onclick="addToCart('Cerveza Rubia', 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBb2BH70ljIzHSKgtNdlh3QdlH2oU9UPP_rA&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de cerveza negra" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1Jz2as9lFUY4nLd4X_14hRqEoUlu7PdnCQ&s.jpeg">
+                    <h4 class="font-bold">Cerveza Negra</h4>
+                    <p>$6.00</p>
+                    <button onclick="addToCart('Cerveza Negra', 6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1Jz2as9lFUY4nLd4X_14hRqEoUlu7PdnCQ&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de cerveza roja" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBQZ4MLdX6jBfODlQ2VR-sIj5bnYDksjO4w&s.jpeg">
+                    <h4 class="font-bold">Cerveza Roja</h4>
+                    <p>$7.00</p>
+                    <button onclick="addToCart('Cerveza Roja', 7, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBQZ4MLdX6jBfODlQ2VR-sIj5bnYDksjO4w&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+                <div class="bg-gray-300 p-4 shadow-lg card fade-in">
+                    <img alt="Botellas de gaseosa de naranja" class="w-full h-48 object-cover mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq6dXuEEYP4STrRlkQ41dPiCAXBJkf8OeATw&s.jpeg">
+                    <h4 class="font-bold">Gaseosa de Naranja</h4>
+                    <p>$2.00</p>
+                    <button onclick="addToCart('Gaseosa de Naranja', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq6dXuEEYP4STrRlkQ41dPiCAXBJkf8OeATw&s.jpeg')" class="bg-red-500 text-white px-4 py-2 rounded">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer class="bg-black text-white text-center py-4">
+        <p>&copy; 2024 Distribuidor Lutri. Todos los derechos reservados. 
+            <br>
+            Contacto: <a href="mailto:facundolutri@gmail.com" class="text-red-400">Facundolutri@gmail.com</a>, 
+            <a href="mailto:fernandolutri@gmail.com" class="text-red-400">Fernandolutri@gmail.com</a>
+        </p>
+    </footer>
+</body>
+</html>
