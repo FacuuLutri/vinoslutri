@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Hash": "dKQXwCr8CdEEvsuqkSz7yKuw5iMg5in3sUJQpde0Gh8=",
+  "Source": "distribuidora.api",
+  "BasePath": "_content/distribuidora.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "distribuidora.api\\wwwroot",
+      "Source": "distribuidora.api",
+      "ContentRoot": "C:\\Users\\Facundo\\Desktop\\Venta de vinos\\distribuidora.api\\wwwroot\\",
+      "BasePath": "_content/distribuidora.api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}
